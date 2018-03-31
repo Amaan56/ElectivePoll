@@ -20,7 +20,7 @@ res.send('POLL');
 });
 
 
-router.post('/post',(req,res) => {
+router.post('/',(req,res) => {
 
     pusher.trigger('elective-poll', 'elective-vote', {
        points : 1,
