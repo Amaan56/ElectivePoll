@@ -2,7 +2,7 @@ const form = document.getElementById('vote-form');
 
 //Form Submit Event
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
+ 
     const choice = document.querySelector('input[name=subject]:checked').value;
     const data = {
         subject : choice
@@ -19,18 +19,33 @@ form.addEventListener('submit', (e) => {
         .then( data => console.log(data))
         .catch( err => console.log(err))
 
-      
+        e.preventDefault();
 
 });
 
-//Graph using canvasJS
+//get request
+fetch('http://localhost:4000/poll')
+ .then(res => res.json())
+ .then (data => {
+     const votes = data.votes;
+     const totalVotes = votes.length;
+
+     //Count votes count
+     const voteCounts = votes.reduce(
+         (acc,vote) => (
+            (acc[vote.subject] = (acc[vote.subject] || 0) + vote.points),acc
+        ),
+        {}
+    );
+
+    //Graph using canvasJS
 let dataPoints = [
-    {label : 'Image Processing' , y : 0},
-    {label : 'Software Architecture' , y : 0},
-    {label : 'E-Commerce' , y : 0},
-    {label : 'Multimedia Systems' , y : 0},
-    {label : 'Usability Engg' , y : 0},
-    {label : 'Ubiquitous Computing' , y : 0}
+    {label : 'ImageProcessing' , y : voteCounts.ImageProcessing},
+    {label : 'SoftwareArchitecture' , y : voteCounts.SoftwareArchitecture},
+    {label : 'ECommerce' , y : voteCounts.ECommerce},
+    {label : 'MultimediaSystems' , y : voteCounts.MultimediaSystems},
+    {label : 'UsabilityEngg' , y : voteCounts.UsabilityEngg},
+    {label : 'UbiquitousComputing' , y : voteCounts.UbiquitousComputing}
 ];
 
 const chartContainer = document.querySelector('#chartContainer');
@@ -72,6 +87,6 @@ if(chartContainer){
         });
         chart.render();
      });
-}
-
+};
+ });
 
