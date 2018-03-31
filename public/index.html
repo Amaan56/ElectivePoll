@@ -4,9 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <title>Elective Poll</title>
 </head>
 <body>
-    <h1>Elective Subjects for IT Department</h1>
+  <div class="container">
+    <h3>Elective Subjects for IT Department</h3>
+    <p>Vote for your Elective Subject</p>
+    <form id="vote-form">
+                  <p>
+                   <label>
+                      <input name="subject" id="image" value="Image Processing" type="radio"/>
+                      <span>Image Processing</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      <input name="subject" id="software" type="radio" value="Software Architecture"/>
+                      <span>Software Architecture</span>
+                    </label>
+                  </p>
+                  <p>
+                     <label>
+                      <input name="subject" id="ecomm" type="radio" value="E-Commerce and E-Business"/>
+                      <span>E-Commerce and E-Business</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      <input name="subject" id="multimedia" type="radio" value="Multimedia Systems"/>
+                      <span>Multimedia Systems</span>
+                    </label>
+                  </p>
+                  <p>
+                        <label>
+                          <input name="subject" id="usability" type="radio" value="Usability Engineering"/>
+                            <span>Usability Engineering</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="subject" type="radio" value="Ubiquitous Computing" />
+                          <span>Ubiquitous Computing</span>
+                        </label>
+                      </p>
+            <input type="submit" class="btn" value="Vote">
+    </form>
+ <br>
+ <br>
+
+ <div id="chartContainer" style="width:100%;height:300px"></div>
+  </div>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/4.2.2/pusher.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
